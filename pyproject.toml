@@ -1,5 +1,5 @@
 [project]
-name = "missioncontrol"
+name = "missioncontrolbot"
 version = "0.1.0"
 description = ""
 authors = [
@@ -22,8 +22,8 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [tool.pdm.scripts]
-mcb.cmd = "python src/missioncontrol/cli.py"
+mcb.cmd = "python src/missioncontrolbot/cli.py"
 mcb.env_file = ".env"
 
 [project.scripts]
-mcb = "missioncontrol.cli:app"
+mcb = "missioncontrolbot.cli:app"

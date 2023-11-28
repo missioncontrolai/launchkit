@@ -1,8 +1,9 @@
 
+import datetime
 import json
-from typing import TypedDict, Union, Callable, Coroutine
+import os
+from typing import TypedDict, Union
 
-import asyncio
 import sys
 
 from openai import AsyncOpenAI
@@ -22,10 +23,10 @@ from openai.types.chat.chat_completion_assistant_message_param import (
     ChatCompletionAssistantMessageParam,
 )
 
-from openai.types.chat.chat_completion_tool_param import ChatCompletionToolParam
 
-from missioncontrol.missioncontrol import MissionControl
+from missioncontrolbot.missioncontrolbot import MissionControl
 
+BOT_NAME = os.environ.get("BOT_NAME", "jarvis")
 
 ChatCompletionMessageParam = Union[
     ChatCompletionSystemMessageParam,
@@ -77,10 +78,10 @@ async def chat(thread: Thread, actions: MissionControl) -> Thread:
 
 async def talk(actions: MissionControl) -> None:
     thread: Thread = {"log": []}
-    system_message = """
-You are Artie, an AI developed by loopback.ai for PolyLM backoffice tasks.
-PolyLM does generative AI in hebrew. Help with any request.
-Current timestamp: {message.created_at.isoformat()}
+    system_message = f"""
+You are {BOT_NAME}, an AI developed for tool use.
+Help with any request.
+Current timestamp: {datetime.datetime.now().isoformat()}
 Be concise and professional.
 """
     thread["log"].append({"role": "system", "content": system_message})
