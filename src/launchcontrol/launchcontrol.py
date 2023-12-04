@@ -30,7 +30,7 @@ def get_func_schema(f) -> FunctionSchema:
         "parameters": s
     }
 
-class MissionControl:
+class LaunchControl:
     def __init__(self, funcs: list[Callable| Coroutine]) -> None:
         self._funcs = {
             f.__name__: f for f in funcs
