@@ -1,6 +1,6 @@
 [project]
 name = "launchkit"
-version = "0.1.2"
+version = "0.1.3"
 description = ""
 authors = [
     {name = "Ken Buskilla", email = "k@loopback.ai"},
@@ -21,9 +21,16 @@ license = {text = "MIT"}
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-[tool.pdm.scripts]
-launchcontrol.cmd = "python src/missioncontrolbot/cli.py"
-launchcontrol.env_file = ".env"
-
+[tool.pdm.dev-dependencies]
+dev = [
+    "ruff>=0.1.6",
+]
 [project.scripts]
-launchcontrol = "launchcontrol.cli:app"
+launchkit = "launchkit.cli:app"
+
+[tool.pdm.scripts]
+dev.cmd = "python src/launchkit/cli.py"
+dev.env_file = ".env"
+
+format.cmd = "ruff format src"
+lint.cmd = "ruff check --fix src"

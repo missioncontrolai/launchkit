@@ -1,4 +1,3 @@
-
 import datetime
 import json
 import os
@@ -24,7 +23,7 @@ from openai.types.chat.chat_completion_assistant_message_param import (
 )
 
 
-from missioncontrolbot.missioncontrolbot import MissionControl
+from ..launchkit import LaunchKit
 
 BOT_NAME = os.environ.get("BOT_NAME", "jarvis")
 
@@ -44,14 +43,13 @@ class Thread(TypedDict):
     log: list[ChatCompletionMessageParam]
 
 
-async def chat(thread: Thread, actions: MissionControl) -> Thread:
-
+async def chat(thread: Thread, actions: LaunchKit) -> Thread:
     completion = await openai_client.chat.completions.create(
         model="gpt-4",
         messages=[
             *thread["log"],
         ],
-        tools=actions.openai_tools(), # type: ignore
+        tools=actions.openai_tools(),  # type: ignore
     )
     msg = completion.choices[0].message
     if not msg.tool_calls:
@@ -66,7 +64,9 @@ async def chat(thread: Thread, actions: MissionControl) -> Thread:
         ]
     }
     for tool in msg.tool_calls or []:
-        data = await actions.call_func(tool.function.name, **json.loads(tool.function.arguments))
+        data = await actions.call_func(
+            tool.function.name, **json.loads(tool.function.arguments)
+        )
         thread_additions["log"].append(
             {
                 "role": "tool",
@@ -76,7 +76,8 @@ async def chat(thread: Thread, actions: MissionControl) -> Thread:
         )
     return thread_additions
 
-async def talk(actions: MissionControl) -> None:
+
+async def talk(actions: LaunchKit) -> None:
     thread: Thread = {"log": []}
     system_message = f"""
 You are {BOT_NAME}, an AI developed for tool use.

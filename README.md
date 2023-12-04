@@ -14,7 +14,7 @@ LaunchKit is using Pydantic under the hood to validate and parse functions to ma
 ```bash
 mkdir my_project
 cd my_project
-pdm init --copier gh:loopbackai/missioncontrol-template
+pdm init --copier gh:missioncontrolai/template
 pdm install
 ```
 
