@@ -4,7 +4,7 @@ import os
 from typing import TypedDict, Union
 
 import sys
-
+from rich.console import Console
 from openai import AsyncOpenAI
 from openai.types.chat.chat_completion_tool_message_param import (
     ChatCompletionToolMessageParam,
@@ -37,6 +37,7 @@ ChatCompletionMessageParam = Union[
 
 
 openai_client = AsyncOpenAI()
+console = Console()
 
 
 class Thread(TypedDict):
@@ -79,6 +80,7 @@ async def chat(thread: Thread, actions: LaunchKit) -> Thread:
 
 async def talk(actions: LaunchKit) -> None:
     thread: Thread = {"log": []}
+    console.print("\n🚀🚀🚀 [magenta bold italic]LaunchKit Terminal Tester[/] 🚀🚀🚀\n")
     system_message = f"""
 You are {BOT_NAME}, an AI developed for tool use.
 Help with any request.
@@ -88,16 +90,18 @@ Be concise and professional.
     thread["log"].append({"role": "system", "content": system_message})
     while True:
         try:
-            user_input = input("User: ")
+            user_input = console.input("[bold blue]User:[/] ")
             thread["log"].append({"role": "user", "content": user_input})
             tadds: Thread = {"log": []}
             for _ in range(10):
                 tadds = await chat(thread, actions)
                 for msg in tadds["log"]:
                     if msg["role"] == "tool":
-                        print(f"Tool: {msg['content']}")
+                        console.print(f"[bold green]Tool:[/] {msg['content']}")
                     elif msg["content"]:
-                        print(f"{msg['role'].capitalize()}: {msg['content']}")
+                        console.print(
+                            f"[bold yellow]{msg['role'].capitalize()}:[/] {msg['content']}"
+                        )
                 thread["log"] = [*thread["log"], *tadds["log"]]
                 if tadds["log"][-1]["role"] == "tool":
                     pass
