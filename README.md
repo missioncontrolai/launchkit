@@ -1,4 +1,7 @@
 # LaunchKit
+<p align="center">
+  <img src="./docs/images/launchkit_logo_512px.webp" alt="drawing" width="200"/>
+</p>
 
 LaunchKit is a library for building custom tools for GPTs with tool-use support.
 Define your own tools as type annotated functions and LaunchKit will help you test, talk to, and deploy your tools.
