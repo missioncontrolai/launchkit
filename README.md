@@ -1,9 +1,9 @@
-# LaunchControl
+# LaunchKit
 
-LaunchControl is a library for building custom tools for GPTs with tool-use support.
-Define your own tools as type annotated functions and LaunchControl will help you test, talk to, and deploy your tools.
+LaunchKit is a library for building custom tools for GPTs with tool-use support.
+Define your own tools as type annotated functions and LaunchKit will help you test, talk to, and deploy your tools.
 
-LaunchControl is using Pydantic under the hood to validate and parse functions to make them friendly to for AI APIs.
+LaunchKit is using Pydantic under the hood to validate and parse functions to make them friendly to for AI APIs.
 
 ### Getting started
 
