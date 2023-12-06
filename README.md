@@ -4,9 +4,9 @@
   <img src="./docs/images/launchkit_logo_512px.webp" alt="drawing" width="200"/>
 </p>
 
-LaunchKit is an open-source library designed to empower developers to efficiently build and deploy custom Python-backed tools that extend the functionality of GPT-based chatbots. It simplifies the transformation of your Python functions into tool specifications that can be understood by AI APIs, using type annotations to generate JSON schemas in the OpenAI format.
+LaunchKit is an open-source library that enables developers to create and manage Python tools which enhance GPT chatbots' capabilities. It turns your Python code into a format that AI systems like OpenAI's GPT can understand and use, thanks to the generation of JSON schemas driven by your code's type annotations.
 
-This library harnesses Pydantic to interpret function signatures—including arguments, names, and docstrings—creating compatible data models that ultimately facilitate the dynamic generation of JSON schemas. When chatbots invoke these functions, LaunchKit also utilizes Pydantic's validation capabilities to ensure that incoming data adheres to the expected function schemas, promoting accurate and reliable bot operation.
+Using Pydantic, LaunchKit reads your code's structure and details, ensuring that bots can interact with your tools correctly. This process provides clear, enforceable contracts between your functions and chatbots, making your bots smart and reliable.
 
 #### With Launchkit, you can:
 
