@@ -19,16 +19,20 @@ Using Pydantic, LaunchKit reads your code's structure and details, ensuring that
 ```python
 from launchkit import LaunchKit
 
-def add(a: int, b: int) -> int:
+def add(a: int, b: int):
     """Adds two numbers together."""
     return a + b
 
 # async functions are also supported
-async def subtract(a: int, b: int) -> int:
-    """Subtracts two numbers."""
-    return a - b
+async def fetch_today_weather():
+    """Gets today's weather."""
+    await some_async_function()
+    return {
+        "temperature": 20,
+        "humidity": 50
+    }
 
-tools = LaunchKit([add, subtract])
+tools = LaunchKit([add, fetch_today_weather])
 
 tools.openai_tools() # list of tools in OpenAI format - ready to be sent to the API.
 ```
@@ -70,3 +74,51 @@ git commit -m "Initial commit"
 - Create a new repo on github and push to it.
 - Create a Discord bot and save the token.
 - Go to https://www.missioncontrolbot.com/ and add your repo.
+
+### First Steps
+
+1. Create functions
+
+```python
+def add(a: int, b: int): # use a descriptive name and type annotations
+    """Adds two numbers together.""" # add a docstring
+    return a + b
+```
+
+- The function's name will be used as the tool's name. The docstring will be used as the tool's description.
+- Use type annotations([More on types](https://fastapi.tiangolo.com/python-types/)) to help the bot understand what kind of data to send to your function.
+
+#### Async functions are also supported:
+
+```python
+async def fetch_today_weather():
+    """Gets today's weather."""
+    await some_async_function()
+    return {
+        "temperature": 20,
+        "humidity": 50
+    }
+```
+
+- Return type should be serializable to JSON.
+
+2. Create a LaunchKit instance
+
+```python
+from launchkit import LaunchKit
+
+tools = LaunchKit([add, fetch_today_weather])
+```
+
+3. Talk with your bot locally in the terminal:
+
+```bash
+launchkit module_name:tools
+```
+
+#### Summary
+
+- Use descriptive names
+- Add docstrings
+- Use type annotations
+- Return type should be serializable to JSON
