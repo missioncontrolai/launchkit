@@ -17,9 +17,9 @@ Using Pydantic, LaunchKit reads your code's structure and details, ensuring that
 
 #### With Launchkit, you can:
 
-1. Create Python-based tools that your bot will easily comprehend and trigger.
-2. Test your bot and functions locally.
-3. Deploy your upgraded bot to channels like Discord, Slack, and Telegram. (via MissionControl)
+1. Create Python-based tools that your bot can use.
+2. Talk with your bot and test functions locally.
+3. Deploy the upgraded bot to channels like Discord, Slack, and Telegram. (via MissionControl)
 
 ## Toy Example
 
