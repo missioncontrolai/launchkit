@@ -3,7 +3,9 @@
 <p align="center">
   <img src="./docs/images/launchkit_logo_512px.webp" alt="drawing" width="200"/>
 </p>
-<p>
+
+
+<p align="center">
   <a href="https://discord.gg/67BbFqq5Gk">
       <img src="https://dcbadge.vercel.app/api/server/67BbFqq5Gk?compact=true&style=flat" alt="Discord">
   </a>
