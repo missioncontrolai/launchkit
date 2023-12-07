@@ -1,14 +1,17 @@
 # LaunchKit
 
 <p align="center">
-  <img src="./docs/images/launchkit_logo_512px.webp" alt="drawing" width="200"/>
+  <img src="https://github.com/missioncontrolai/launchkit/raw/master/docs/images/launchkit_logo_512px.webp" alt="logo" width="200"/>
 </p>
-
 
 <p align="center">
   <a href="https://discord.gg/67BbFqq5Gk">
       <img src="https://dcbadge.vercel.app/api/server/67BbFqq5Gk?compact=true&style=flat" alt="Discord">
   </a>
+  <a href="https://pypi.org/project/launchkit/">
+    <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/launchkit">
+  </a>
+  <img alt="PyPI - License" src="https://img.shields.io/pypi/l/launchkit">
 </p>
 
 LaunchKit is an open-source library that enables developers to create and manage Python-based [tools](https://platform.openai.com/docs/assistants/tools) which enhance GPT chatbots' capabilities. It turns your Python code into a format that large language models (LLMs) like OpenAI's GPT can understand and use, thanks to the generation of JSON schemas driven by your code's type annotations.
