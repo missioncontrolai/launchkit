@@ -14,7 +14,7 @@ Using Pydantic, LaunchKit reads your code's structure and details, ensuring that
 2. Talk/test your bot locally in the terminal.
 3. Deploy your bot with MissionControl to Discord, Slack and Telegram.
 
-### Toy Example
+## Toy Example
 
 ```python
 from launchkit import LaunchKit
@@ -43,7 +43,7 @@ Talk with your bot locally in the terminal:
 launchkit module_name:tools
 ```
 
-### Getting started
+## Getting started
 
 1. Install [PDM](https://pdm-project.org/latest/#installation)
 
@@ -75,9 +75,9 @@ git commit -m "Initial commit"
 - Create a Discord bot and save the token.
 - Go to https://www.missioncontrolbot.com/ and add your repo.
 
-### First Steps
+## First Steps
 
-1. Create functions
+### Create functions
 
 ```python
 def add(a: int, b: int): # use a descriptive name and type annotations
@@ -85,10 +85,10 @@ def add(a: int, b: int): # use a descriptive name and type annotations
     return a + b
 ```
 
-- The function's name will be used as the tool's name. The docstring will be used as the tool's description.
-- Use type annotations([More on types](https://fastapi.tiangolo.com/python-types/)) to help the bot understand what kind of data to send to your function.
+- **The function's name will be used as the tool's name. The docstring will be used as the tool's description.**
+- **Use type annotations([More on types](https://fastapi.tiangolo.com/python-types/)) to help the bot understand what kind of data to send to your function.**
 
-#### Async functions are also supported:
+Async functions are also supported:
 
 ```python
 async def fetch_today_weather():
@@ -100,9 +100,11 @@ async def fetch_today_weather():
     }
 ```
 
-- Return type should be serializable to JSON.
+- **Return type should be serializable to JSON.**
+  > [!TIP]
+  > When returning a dictionary, make sure that the fiels names are descriptive. The bot will use them to generate better summaries to function execution results.
 
-2. Create a LaunchKit instance
+### Exposing your functions to the bot
 
 ```python
 from launchkit import LaunchKit
@@ -110,13 +112,22 @@ from launchkit import LaunchKit
 tools = LaunchKit([add, fetch_today_weather])
 ```
 
-3. Talk with your bot locally in the terminal:
+### Testing
+
+Talk with your bot locally in the terminal:
 
 ```bash
 launchkit module_name:tools
 ```
 
-#### Summary
+Write [tests](https://docs.pytest.org/) for your functions:
+
+```python
+def test_add():
+    assert add(1, 2) == 3
+```
+
+### Summary
 
 - Use descriptive names
 - Add docstrings
