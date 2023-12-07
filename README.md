@@ -101,8 +101,9 @@ async def fetch_today_weather():
 ```
 
 - **Return type should be serializable to JSON.**
-  > [!TIP]
-  > When returning a dictionary, make sure that the fiels names are descriptive. The bot will use them to generate better summaries to function execution results.
+
+> [!TIP]
+> When returning a dictionary, make sure that the fiels names are descriptive. The bot will use them to generate better summaries to function execution results.
 
 ### Exposing your functions to the bot
 
