@@ -3,16 +3,21 @@
 <p align="center">
   <img src="./docs/images/launchkit_logo_512px.webp" alt="drawing" width="200"/>
 </p>
+<p>
+  <a href="https://discord.gg/67BbFqq5Gk">
+      <img src="https://dcbadge.vercel.app/api/server/67BbFqq5Gk?compact=true&style=flat" alt="Discord">
+  </a>
+</p>
 
-LaunchKit is an open-source library that enables developers to create and manage Python tools which enhance GPT chatbots' capabilities. It turns your Python code into a format that AI systems like OpenAI's GPT can understand and use, thanks to the generation of JSON schemas driven by your code's type annotations.
+LaunchKit is an open-source library that enables developers to create and manage Python-based [tools](https://platform.openai.com/docs/assistants/tools) which enhance GPT chatbots' capabilities. It turns your Python code into a format that AI systems like OpenAI's GPT can understand and use, thanks to the generation of JSON schemas driven by your code's type annotations.
 
 Using Pydantic, LaunchKit reads your code's structure and details, ensuring that bots can interact with your tools correctly. This process provides clear, enforceable contracts between your functions and chatbots, making your bots more robust and easier to maintain.
 
 #### With Launchkit, you can:
 
-1. Write Python functions that can be invoked by your chatbot.
-2. Talk/test your bot locally in the terminal.
-3. Deploy your bot with MissionControl to Discord, Slack and Telegram.
+1. Create Python-based tools that your bot will easily comprehend and trigger.
+2. Test your bot and functions locally.
+3. Deploy your upgraded bot to channels like Discord, Slack, and Telegram. (via MissionControl)
 
 ## Toy Example
 
