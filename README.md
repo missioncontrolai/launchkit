@@ -85,8 +85,10 @@ def add(a: int, b: int): # use a descriptive name and type annotations
     return a + b
 ```
 
-- **The function's name will be used as the tool's name. The docstring will be used as the tool's description.**
-- **Use type annotations([More on types](https://fastapi.tiangolo.com/python-types/)) to help the bot understand what kind of data to send to your function.**
+> [!NOTE]
+>
+> - **The function's name will be used as the tool's name. The docstring will be used as the tool's description.**
+> - **Use type annotations([More on types](https://fastapi.tiangolo.com/python-types/)) to help the bot understand what kind of data to send to your function.**
 
 Async functions are also supported:
 
@@ -100,10 +102,10 @@ async def fetch_today_weather():
     }
 ```
 
-- **Return type should be serializable to JSON.**
-
-> [!TIP]
-> When returning a dictionary, make sure that the fiels names are descriptive. The bot will use them to generate better summaries to function execution results.
+> [!NOTE]
+>
+> - **Return type should be serializable to JSON.**
+> - When returning a dictionary, make sure that the fiels names are descriptive. The bot will use them to generate better summaries to function execution results.
 
 ### Exposing your functions to the bot
 
